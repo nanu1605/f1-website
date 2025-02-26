@@ -1,0 +1,33 @@
+/* Ferrari-style Dark Theme */
+.dark-theme {
+    background: #000;
+    color: #ff0000;
+  }
+  
+  /* Light Theme (Aesthetic Colors) */
+  .light-theme {
+    background: #f4f4f4;
+    color: #333;
+  }
+  
+  .light-theme .navbar {
+    background: #ddd;
+  }
+  
+  .light-theme .navbar a {
+    color: black;
+  }
+  
+  .light-theme .navbar a:hover {
+    color: red;
+  }
+  
+  .light-theme .theme-toggle {
+    background: black;
+    color: white;
+  }
+  
+  .light-theme .theme-toggle:hover {
+    background: gray;
+  }
+  

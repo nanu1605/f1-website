@@ -1,0 +1,236 @@
+/* styles.css */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    padding: 10px;
+    background-color: var(--navbar-bg);
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-size: 18px;
+}
+
+.theme-toggle {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border-radius: 5px;
+}
+
+/* Light & Dark Theme */
+[data-theme="light"] {
+    --bg-color: #f5f5f5;
+    --text-color: #222;
+    --navbar-bg: #ddd;
+    --button-bg: #222;
+    --button-text: #fff;
+}
+
+[data-theme="dark"] {
+    --bg-color: #000;
+    --text-color: #ff0000;
+    --navbar-bg: #222;
+    --button-bg: #ff0000;
+    --button-text: #000;
+}
+.year-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .year-buttons button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background: #ddd;
+    transition: 0.3s;
+  }
+  
+  .year-buttons button.active {
+    background: red;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .drivers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .driver-card {
+    border: 1px solid #ccc;
+    padding: 10px;
+    width: 200px;
+    text-align: center;
+  }
+  .year-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .year-buttons button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background: #ddd;
+    transition: 0.3s;
+  }
+  
+  .year-buttons button.active {
+    background: red;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .champion-details {
+    margin-top: 20px;
+  }
+  
+  .champion-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px 0;
+    text-align: center;
+  }
+  .year-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .year-buttons button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background: #ddd;
+    transition: 0.3s;
+  }
+  
+  .year-buttons button.active {
+    background: red;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .circuits-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  
+  .circuit-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    width: 250px;
+    text-align: center;
+  }
+  
+  .circuit-card a {
+    display: block;
+    margin-top: 5px;
+    text-decoration: none;
+    color: blue;
+  }
+  .year-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .year-buttons button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background: #ddd;
+    transition: 0.3s;
+  }
+  
+  .year-buttons button.active {
+    background: red;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .results-section {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  .year-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-bottom: 20px;
+  }
+  
+  .year-buttons button {
+    padding: 5px 10px;
+    cursor: pointer;
+    border: none;
+    background: #ddd;
+    transition: 0.3s;
+  }
+  
+  .year-buttons button.active {
+    background: red;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .teams-section {
+    margin-top: 20px;
+  }
+  
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+  }
+  
+  th, td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  th {
+    background-color: #f4f4f4;
+  }
+  
