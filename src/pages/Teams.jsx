@@ -1,10 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
-  const [selectedYear, setSelectedYear] = useState(2025); // Default year
+  const [selectedYear, setSelectedYear] = useState(2025);
+  const contentRef = useRef(null);
 
-  // Generate a list of years from 1950 to 2025
   const years = Array.from({ length: 2025 - 1950 + 1 }, (_, i) => 1950 + i);
 
   useEffect(() => {
@@ -21,27 +21,31 @@ const Teams = () => {
     };
 
     fetchTeams();
-  }, [selectedYear]); // Refetch when year changes
+  }, [selectedYear]);
+
+  const handleYearClick = (year) => {
+    setSelectedYear(year);
+    setTimeout(() => {
+      contentRef.current?.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }, 300);
+  };
 
   return (
     <div className="teams-page">
       <h1>Formula 1 Teams ({selectedYear})</h1>
 
-      {/* Year Selection Buttons */}
       <div className="year-buttons">
         {years.map((year) => (
-          <button
-            key={year}
-            onClick={() => setSelectedYear(year)}
-            className={year === selectedYear ? "active" : ""}
-          >
+          <button key={year} onClick={() => handleYearClick(year)} className="year-btn">
             {year}
           </button>
         ))}
       </div>
 
-      {/* Teams List */}
-      <div className="teams-section">
+      <div ref={contentRef} className="teams-section">
         {teams.length > 0 ? (
           <table>
             <thead>

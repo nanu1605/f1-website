@@ -1,33 +1,84 @@
-/* Ferrari-style Dark Theme */
+/* Light Theme */
+.light-theme {
+  --background: url('/public/images/light.jpg'); /* Replace with your image */
+  --text-color: #222;
+  --button-bg: #d32f2f;
+  --button-hover: #b71c1c;
+  --button-text: white;
+  --navbar-bg: rgba(255, 255, 255, 0.9);
+}
+
+/* Dark Theme (Ferrari-style) */
 .dark-theme {
-    background: #000;
-    color: #ff0000;
-  }
-  
-  /* Light Theme (Aesthetic Colors) */
-  .light-theme {
-    background: #f4f4f4;
-    color: #333;
-  }
-  
-  .light-theme .navbar {
-    background: #ddd;
-  }
-  
-  .light-theme .navbar a {
-    color: black;
-  }
-  
-  .light-theme .navbar a:hover {
-    color: red;
-  }
-  
-  .light-theme .theme-toggle {
-    background: black;
-    color: white;
-  }
-  
-  .light-theme .theme-toggle:hover {
-    background: gray;
-  }
-  
+  --background: url('/public/images/dark.jpg'); /* Replace with your image */
+  --text-color: #fff;
+  --button-bg: red;
+  --button-hover: #ff4444;
+  --button-text: black;
+  --navbar-bg: rgba(0, 0, 0, 0.8);
+}
+
+/* Apply Background */
+body {
+  background: var(--background);
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-color);
+  transition: background 0.5s ease-in-out;
+}
+
+/* Navbar Styling */
+.navbar {
+  background: var(--navbar-bg);
+  padding: 10px 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Bigger Button Styling */
+button {
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding: 18px 25px; /* Increased padding */
+  font-size: 1.4rem; /* Bigger text */
+  margin: 12px; /* More spacing between buttons */
+  border: none;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  transition: 0.3s;
+  border-radius: 10px;
+  font-weight: bold;
+}
+
+button:hover {
+  background: var(--button-hover);
+  transform: scale(1.12);
+}
+html {
+  scroll-behavior: smooth;
+}
+
+.year-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px; /* More spacing between buttons */
+  margin-bottom: 20px;
+}
+
+.year-btn {
+  background: var(--button-bg);
+  color: var(--button-text);
+  padding: 20px 30px; /* Increased size */
+  font-size: 1.5rem; /* Bigger text */
+  border: none;
+  cursor: pointer;
+  font-family: 'Orbitron', sans-serif;
+  transition: 0.4s;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.year-btn:hover {
+  background: var(--button-hover);
+  transform: scale(1.15); /* More prominent hover effect */
+}
