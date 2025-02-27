@@ -1,0 +1,50 @@
+.year-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.year-buttons button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #f4f4f4;
+  background: linear-gradient(135deg, #333 0%, #f5f5dc 100%);
+  background-size: 200% 200%;
+  border: none;
+  color: white;
+  font-weight: bold;
+  transition: transform 0.3s ease-in-out;
+  animation: gradientMove 3s infinite alternate;
+}
+
+.year-buttons button:hover {
+  background: var(--button-hover);
+  transform: scale(1.5);
+}
+
+.year-buttons button.active {
+  background: red;
+  color: white;
+  font-weight: bold;
+}
+
+/* Gradient Animation */
+@keyframes gradientMove {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.background {
+  background: linear-gradient(135deg, #ff0000, #770000, #000000);
+  background-size: 300% 300%;
+  animation: movingGradient 6s infinite alternate;
+}

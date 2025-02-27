@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-
+import "./../css/YearButton.css";
 const Circuits = () => {
   const [circuits, setCircuits] = useState([]);
   const [selectedYear, setSelectedYear] = useState(2025); // Default year
@@ -53,7 +53,7 @@ const Circuits = () => {
             </div>
           ))
         ) : (
-          <p>No circuits found for {selectedYear}.</p>
+          <p className="data-not-found">No circuits found for {selectedYear}.</p>
         )}
       </div>
     </div>

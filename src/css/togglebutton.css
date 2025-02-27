@@ -1,0 +1,86 @@
+.navbar a {
+  text-decoration: none;
+  color: var(--text-color);
+  font-size: 18px;
+}
+
+.navbar {
+  background: black;
+  padding: 10px 0;
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 95%;
+  margin: 0 auto;
+  box-shadow: 0 4px 10px rgba(255, 0, 0, 0.3);
+}
+
+/* Logo Styling */
+.navbar-logo img {
+  height: 50px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.navbar-logo img:hover {
+  transform: scale(1.1);
+}
+
+/* Navbar Links */
+.navbar-links {
+  display: flex;
+  gap: 15px; /* Reduced gap to bring items closer */
+  flex-wrap: wrap; /* Prevents overflowing */
+  align-items: center;
+}
+
+/* Navigation Items */
+.nav-item {
+  color: white;
+  font-size: 18px;
+  text-decoration: none;
+  transition: transform 0.2s, color 0.3s;
+  padding: 8px 10px;
+  border-radius: 5px;
+  white-space: nowrap; /* Prevent text from wrapping */
+}
+
+.nav-item:hover {
+  color: red;
+  transform: scale(1.1);
+  background: rgba(255, 0, 0, 0.1);
+}
+
+/*Dark Mode Button*/
+.dark-mode-btn {
+    background: red;
+    color: white;
+    border: none;
+    padding: 20px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .dark-mode-btn:hover {
+    background: darkred;
+    transform: scale(1.05);
+  }
+  
+  .dark-mode-btn:active {
+    transform: scale(0.95);
+  }
+  
+  @media (max-width: 768px) {
+    .dark-mode-btn {
+      padding: 8px 15px;
+      font-size: 14px;
+    }
+  }
+  

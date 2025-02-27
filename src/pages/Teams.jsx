@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from "react";
-
+import "./../css/YearButton.css";
 const Teams = () => {
   const [teams, setTeams] = useState([]);
   const [selectedYear, setSelectedYear] = useState(2025);
@@ -39,7 +39,11 @@ const Teams = () => {
 
       <div className="year-buttons">
         {years.map((year) => (
-          <button key={year} onClick={() => handleYearClick(year)} className="year-btn">
+          <button
+            key={year}
+            onClick={() => setSelectedYear(year)}
+            className={year === selectedYear ? "active" : ""}
+          >
             {year}
           </button>
         ))}
@@ -64,7 +68,7 @@ const Teams = () => {
             </tbody>
           </table>
         ) : (
-          <p>No team data available for {selectedYear}.</p>
+          <p className="data-not-found">No team data available for {selectedYear}.</p>
         )}
       </div>
     </div>

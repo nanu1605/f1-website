@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-
+import "./../css/YearButton.css";
 const Standings = () => {
   const [standings, setStandings] = useState([]);
 
@@ -22,7 +22,7 @@ const Standings = () => {
     >
       <h1>F1 Current Standings</h1>
       {standings.length === 0 ? (
-        <p>Loading...</p>
+        <p className="data-not-found">Loading...</p>
       ) : (
         <ul>
           {standings.map((driver) => (

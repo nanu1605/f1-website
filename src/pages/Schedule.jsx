@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { motion } from "framer-motion";
-
+import "./../css/YearButton.css";
 const Schedule = () => {
   const [schedule, setSchedule] = useState([]);
 
@@ -22,7 +22,7 @@ const Schedule = () => {
     >
       <h1>F1 Race Schedule</h1>
       {schedule.length === 0 ? (
-        <p>Loading...</p>
+        <p className="data-not-found">Loading...</p>
       ) : (
         <ul>
           {schedule.map((race) => (

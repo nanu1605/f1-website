@@ -1,7 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./components/Navbar";
-import ThemeToggle from "./components/ThemeToggle";
 import Home from "./pages/Home";
 import Cars from "./pages/Cars";
 import Champions from "./pages/Champions";
@@ -21,7 +20,6 @@ const App = () => {
     <Router>
       <div className="app">
         <Navbar />
-        <ThemeToggle />
         <div className="content">
           <Routes>
             <Route path="/" element={<Home />} />

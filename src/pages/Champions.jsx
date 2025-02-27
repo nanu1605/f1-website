@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+import "./../css/YearButton.css";
+import "./../css/Champions.css";
 const Champions = () => {
   const [champion, setChampion] = useState(null);
   const [constructorChampion, setConstructorChampion] = useState(null);
@@ -60,7 +61,7 @@ const Champions = () => {
             <p>Nationality: {champion.nationality}</p>
           </div>
         ) : (
-          <p>No driver champion data available for {selectedYear}.</p>
+          <p className="data-not-found">No driver champion data available for {selectedYear}.</p>
         )}
 
         {constructorChampion ? (
@@ -69,7 +70,7 @@ const Champions = () => {
             <p>Nationality: {constructorChampion.nationality}</p>
           </div>
         ) : (
-          <p>No constructor champion data available for {selectedYear}.</p>
+          <p className="data-not-found">No constructor champion data available for {selectedYear}.</p>
         )}
       </div>
     </div>
