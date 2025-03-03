@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import "./../style.css"; // Link to updated styles
 import React, { useEffect, useState } from "react";
-import "./../css/togglebutton.css";
+import ThemeToggle from "./ThemeToggle";
+import "./../css/Navbar.css";
 
 const Navbar = () => {
   const [theme, setTheme] = useState(localStorage.getItem("theme") || "light");
@@ -32,23 +32,19 @@ const Navbar = () => {
             ⏱️ Pole Positions
           </Link>
           <Link to="/race-results" className="nav-item">
-            📊 Race Results
+            📊 Standings
           </Link>
           {/* <Link to="/races" className="nav-item">🏁 Races</Link> */}
           <Link to="/schedule" className="nav-item">
             📅 Schedule
           </Link>
           <Link to="/standings" className="nav-item">
-            📈 Standings
+            📈 Current Standings
           </Link>
           <Link to="/teams" className="nav-item">
             🏎️ Teams
           </Link>
-          <button
-            onClick={() => setTheme(theme === "light" ? "dark" : "light")}
-          >
-            {theme === "light" ? "Dark Mode" : "Light Mode"}
-          </button>
+          <ThemeToggle theme={theme} setTheme={setTheme} />
         </div>
       </div>
     </nav>

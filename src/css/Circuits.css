@@ -1,0 +1,44 @@
+.circuit-card {
+  border: 1px solid #ccc;
+  padding: 15px;
+  margin: 10px;
+  text-align: center;
+  width: 250px;
+  display: inline-block;
+  border-radius: 10px;
+  transition: transform 0.3s;
+  cursor: pointer;
+  background: white;
+  color: var(--card-text-light);
+}
+
+.circuit-card:hover {
+  transform: scale(1.05);
+  box-shadow: 0px 5px 15px rgba(0, 0, 255, 0.5);
+  cursor: pointer;
+}
+
+.circuit-image {
+  width: 100%;
+  max-height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+body.dark-theme .circuit-card {
+  background: rgb(77, 72, 72);
+  color: var(--card-text-dark);
+}
+.circuits-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.circuit-card a {
+  display: block;
+  margin-top: 5px;
+  text-decoration: none;
+  color: blue;
+}

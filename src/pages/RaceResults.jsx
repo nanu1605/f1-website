@@ -147,7 +147,7 @@ const RaceResults = () => {
             </tbody>
           </motion.table>
         ) : (
-          <p>No constructor standings data available for {selectedYear}.</p>
+          <p className="data-not-found">No constructor standings data available for {selectedYear}.</p>
         )}
       </motion.div>
     </motion.div>

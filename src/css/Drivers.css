@@ -1,0 +1,40 @@
+/* Driver Card Styles */
+.driver-card {
+    border: 1px solid #ccc;
+    padding: 15px;
+    margin: 10px;
+    text-align: center;
+    width: 200px;
+    display: inline-block;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background 0.3s;
+    border-radius: 10px;
+  
+    /* Apply Light or Dark Mode */
+    background: white;
+    color: var(--card-text-light);
+  }
+  
+  /* Dark Mode for Driver Card */
+  body.dark-theme .driver-card {
+    background: rgb(77, 72, 72);
+    color: var(--card-text-dark);
+  }
+  
+  /* Hover & Click Effects */
+  .driver-card:hover {
+    transform: scale(1.2);
+    box-shadow: 0px 5px 15px rgba(255, 0, 0, 0.5);
+  }
+  
+  .driver-image {
+    margin-top: 10px;
+    border-radius: 10px;
+    transition: 0.3s;
+  }
+  
+  .drivers-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }

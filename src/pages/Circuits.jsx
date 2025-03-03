@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./../css/YearButton.css";
+import "./../css/Circuits.css";
+
 const Circuits = () => {
   const [circuits, setCircuits] = useState([]);
   const [selectedYear, setSelectedYear] = useState(2025); // Default year
@@ -14,7 +16,17 @@ const Circuits = () => {
           `https://ergast.com/api/f1/${selectedYear}/circuits.json`
         );
         const data = await response.json();
-        setCircuits(data.MRData.CircuitTable.Circuits);
+        const circuitsData = data.MRData.CircuitTable.Circuits || [];
+
+        // Fetch images for each circuit from Wikipedia
+        const circuitsWithImages = await Promise.all(
+          circuitsData.map(async (circuit) => {
+            const imageUrl = await fetchCircuitImage(circuit.url);
+            return { ...circuit, imageUrl };
+          })
+        );
+
+        setCircuits(circuitsWithImages);
       } catch (error) {
         console.error("Error fetching circuits:", error);
       }
@@ -22,6 +34,28 @@ const Circuits = () => {
 
     fetchCircuits();
   }, [selectedYear]); // Refetch when year changes
+
+  // Function to fetch circuit image from Wikipedia
+  const fetchCircuitImage = async (wikipediaUrl) => {
+    if (!wikipediaUrl) return null;
+
+    try {
+      const apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${wikipediaUrl.split("/").pop()}`;
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      return data.thumbnail?.source || null;
+    } catch (error) {
+      console.error("Error fetching circuit image:", error);
+      return null;
+    }
+  };
+
+  // Function to open Wikipedia page in new tab
+  const openWikiPage = (wikiUrl) => {
+    if (wikiUrl) {
+      window.open(wikiUrl, "_blank");
+    }
+  };
 
   return (
     <div className="circuits-page">
@@ -44,12 +78,22 @@ const Circuits = () => {
       <div className="circuits-list">
         {circuits.length > 0 ? (
           circuits.map((circuit) => (
-            <div key={circuit.circuitId} className="circuit-card">
+            <div 
+              key={circuit.circuitId} 
+              className="circuit-card"
+              onClick={() => openWikiPage(circuit.url)}
+            >
               <h2>{circuit.circuitName}</h2>
               <p>Location: {circuit.Location.locality}, {circuit.Location.country}</p>
-              <a href={circuit.url} target="_blank" rel="noopener noreferrer">
-                More Info
-              </a>
+              {circuit.imageUrl ? (
+                <img
+                  src={circuit.imageUrl}
+                  alt={`${circuit.circuitName} track`}
+                  className="circuit-image"
+                />
+              ) : (
+                <p>No image available</p>
+              )}
             </div>
           ))
         ) : (
