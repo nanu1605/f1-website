@@ -31,18 +31,6 @@
   }
 }
 
-/* Fade-in Effect */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
 /* Row Entry Delay Animation */
 @keyframes rowEntry {
   from {
@@ -91,25 +79,28 @@
   }
 }
 
-/* Smooth Fade-in Animation */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
+@keyframes flickerLight {
+  0% {
     opacity: 1;
-    transform: translateY(0);
+    text-shadow: 0px 0px 15px rgba(0, 0, 0, 1);
+  }
+  50% {
+    opacity: 0.8;
+    text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.8);
+  }
+  100% {
+    opacity: 1;
+    text-shadow: 0px 0px 25px rgba(0, 0, 0, 1);
   }
 }
 
 .light-theme {
-  --background: url("/public/images/f1Light.jpg"); /* Replace with your image */
+  --background: url("/public/images/f1Light.png"); /* Replace with your image */
   --text-color: #222;
   --button-bg: #d32f2f;
   --button-hover: #b71c1c;
   --button-text: black;
-  --navbar-bg: rgba(255, 255, 255, 0.596);
+  --navbar-bg: rgba(27, 68, 87, 0.596);
 }
 
 /* Dark Theme (Ferrari-style) */

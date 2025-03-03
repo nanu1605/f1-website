@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./../css/YearButton.css";
+import "./../css/Drivers.css";
 const Drivers = () => {
   const [drivers, setDrivers] = useState([]);
   const [selectedYear, setSelectedYear] = useState(2025); // Default year
@@ -14,7 +15,17 @@ const Drivers = () => {
           `https://ergast.com/api/f1/${selectedYear}/drivers.json`
         );
         const data = await response.json();
-        setDrivers(data.MRData.DriverTable.Drivers);
+        const driversData = data.MRData.DriverTable.Drivers || [];
+
+        // Fetch Wikipedia URLs and images for each driver
+        const driversWithDetails = await Promise.all(
+          driversData.map(async (driver) => {
+            const imageUrl = await fetchDriverImage(driver.url);
+            return { ...driver, imageUrl };
+          })
+        );
+
+        setDrivers(driversWithDetails);
       } catch (error) {
         console.error("Error fetching drivers:", error);
       }
@@ -22,6 +33,28 @@ const Drivers = () => {
 
     fetchDrivers();
   }, [selectedYear]); // Refetch when year changes
+
+  // Function to fetch driver image from Wikipedia
+  const fetchDriverImage = async (wikipediaUrl) => {
+    if (!wikipediaUrl) return null;
+
+    try {
+      const apiUrl = `https://en.wikipedia.org/api/rest_v1/page/summary/${wikipediaUrl.split("/").pop()}`;
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      return data.thumbnail?.source || null;
+    } catch (error) {
+      console.error("Error fetching driver image:", error);
+      return null;
+    }
+  };
+
+  // Function to open Wikipedia page in new tab
+  const openWikiPage = (wikiUrl) => {
+    if (wikiUrl) {
+      window.open(wikiUrl, "_blank");
+    }
+  };
 
   return (
     <div className="drivers-page">
@@ -44,10 +77,24 @@ const Drivers = () => {
       <div className="drivers-list">
         {drivers.length > 0 ? (
           drivers.map((driver) => (
-            <div key={driver.driverId} className="driver-card">
+            <div 
+              key={driver.driverId} 
+              className="driver-card"
+              onClick={() => openWikiPage(driver.url)}
+            >
               <h2>{driver.givenName} {driver.familyName}</h2>
               <p>Nationality: {driver.nationality}</p>
               <p>Code: {driver.code || "N/A"}</p>
+              {driver.imageUrl ? (
+                <img
+                  src={driver.imageUrl}
+                  alt={`${driver.givenName} ${driver.familyName}`}
+                  width="120"
+                  className="driver-image"
+                />
+              ) : (
+                <p>No image available</p>
+              )}
             </div>
           ))
         ) : (
