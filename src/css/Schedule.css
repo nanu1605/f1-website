@@ -1,0 +1,66 @@
+.schedule-page {
+  text-align: center;
+  background-size: cover;
+  min-height: 100vh;
+  padding: 2rem;
+  color: white;
+}
+
+.schedule-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 10px red;
+  margin-bottom: 20px;
+}
+
+.loading-text {
+  font-size: 1.5rem;
+  color: yellow;
+}
+
+.schedule-list {
+  list-style: none;
+  padding: 0;
+  margin: auto;
+  max-width: 800px;
+}
+
+.race-item {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 15px;
+  margin: 10px 0;
+  border-radius: 10px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-align: left;
+  transition: all 0.3s ease-in-out;
+}
+
+.race-item:hover {
+  background: red;
+  box-shadow: 0px 0px 15px red;
+  transform: translateY(-5px);
+}
+
+.race-name {
+  color: white;
+  font-weight: bold;
+}
+
+.circuit-name {
+  color: yellow;
+  font-weight: bold;
+  text-decoration: none;
+  transition: color 0.3s, text-shadow 0.3s;
+}
+
+.circuit-name:hover {
+  color: rgb(0, 0, 0);
+  text-shadow: 0px 0px 10px red;
+}
+
+.race-date {
+  color: yellow;
+  font-weight: bold;
+}

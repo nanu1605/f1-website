@@ -32,8 +32,8 @@ Welcome to **F1 Insights** – your go-to platform for all things Formula 1! Thi
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/yourusername/f1-insights.git
-   cd f1-insights
+   git clone https://github.com/nanu1605/f1-website.git
+   cd f1-website
    ```
 
 2. Install dependencies:
