@@ -1,0 +1,47 @@
+.standings-page {
+    text-align: center;
+    padding: 20px;
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(103, 137, 148, 0.8), rgba(0, 0, 0, 0.9),rgba(103, 137, 148, 0.8), rgba(0, 0, 0, 0.9));
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(255, 0, 0, 0.6);
+  }
+  
+  .standings-title {
+    font-size: 2.5rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 0 0 10px rgba(255, 0, 0, 0.9);
+  }
+  
+  .standings-list {
+    list-style: none;
+    padding: 0;
+    margin-top: 20px;
+  }
+  
+  .standings-item {
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 10px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    margin: 5px 0;
+    transition: all 0.3s ease-in-out;
+  }
+  
+  .standings-item:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    transform: scale(1.05);
+  }
+  
+  .loading-text {
+    font-size: 1.5rem;
+    color: yellow;
+    text-shadow: 0 0 5px yellow;
+  }
+  
+  body.dark-theme .standings-page {
+    background: linear-gradient(45deg, rgba(0, 0, 0, 0.9), rgba(158, 22, 22, 0.9), rgba(0, 0, 0, 0.9),rgba(158, 22, 22, 0.9), rgba(0, 0, 0, 0.9));
+  }

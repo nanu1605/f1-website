@@ -1,0 +1,70 @@
+
+
+.pole-title {
+  font-size: 2.5rem;
+  text-align: center;
+  color: #ff1e00;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+  margin-bottom: 20px;
+}
+
+.pole-list-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+/* Default (Light Mode) */
+.pole-card {
+  background: linear-gradient(135deg, rgba(255, 0, 0, 0.6), rgba(0, 0, 0, 0.8));
+  border-radius: 15px;
+  padding: 15px;
+  width: 80%;
+  max-width: 600px;
+  text-align: center;
+  color: white;
+  font-size: 1.3rem;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Dark Mode */
+body.dark-theme .pole-card {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.9), rgba(255, 0, 0, 0.6));
+  color: #ffcc00;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 20px rgb(165, 131, 131);
+}
+
+.pole-card:hover {
+  transform: scale(1.05) translateY(-10px);
+  box-shadow: 0 0 30px rgb(0, 0, 0), 0 0 50px rgba(0, 0, 0, 0.6);
+}
+
+body.dark-theme .pole-card:hover {
+  box-shadow: 0 0 30px rgb(177, 29, 29), 0 0 50px rgba(255, 0, 0, 0.6);
+}
+
+
+.race-name {
+  font-size: 1.5rem;
+  color: #fff;
+  font-weight: 700;
+}
+
+.pole-driver {
+  font-size: 1.3rem;
+  color: #ffcc00;
+  font-weight: 600;
+}
+
+.loading-text {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #ffcc00;
+}
