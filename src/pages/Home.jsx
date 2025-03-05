@@ -40,7 +40,7 @@ const Home = () => {
             Experience the speed, thrill, and history of Formula 1.
           </p>
         </div>
-        <Link to="/races" className="cta-button">
+        <Link to="/schedule" className="cta-button">
           Explore Races
         </Link>
       </motion.div>
