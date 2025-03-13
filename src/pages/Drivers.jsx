@@ -1,15 +1,19 @@
 import React, { useState, useEffect } from "react";
+import Loading from "../components/Loading";
 import "./../css/YearButton.css";
 import "./../css/Drivers.css";
+
 const Drivers = () => {
   const [drivers, setDrivers] = useState([]);
   const [selectedYear, setSelectedYear] = useState(2025); // Default year
+  const [isLoading, setIsLoading] = useState(false);
 
   // Generate a list of years from 1950 to 2025
   const years = Array.from({ length: 2025 - 1950 + 1 }, (_, i) => 1950 + i);
 
   useEffect(() => {
     const fetchDrivers = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(
           `https://ergast.com/api/f1/${selectedYear}/drivers.json`
@@ -28,6 +32,8 @@ const Drivers = () => {
         setDrivers(driversWithDetails);
       } catch (error) {
         console.error("Error fetching drivers:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -74,33 +80,37 @@ const Drivers = () => {
       </div>
 
       {/* Drivers List */}
-      <div className="drivers-list">
-        {drivers.length > 0 ? (
-          drivers.map((driver) => (
-            <div 
-              key={driver.driverId} 
-              className="driver-card"
-              onClick={() => openWikiPage(driver.url)}
-            >
-              <h2>{driver.givenName} {driver.familyName}</h2>
-              <p>Nationality: {driver.nationality}</p>
-              <p>Code: {driver.code || "N/A"}</p>
-              {driver.imageUrl ? (
-                <img
-                  src={driver.imageUrl}
-                  alt={`${driver.givenName} ${driver.familyName}`}
-                  width="120"
-                  className="driver-image"
-                />
-              ) : (
-                <p>No image available</p>
-              )}
-            </div>
-          ))
-        ) : (
-          <p className="data-not-found">No drivers found for {selectedYear}.</p>
-        )}
-      </div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="drivers-list">
+          {drivers.length > 0 ? (
+            drivers.map((driver) => (
+              <div
+                key={driver.driverId}
+                className="driver-card"
+                onClick={() => openWikiPage(driver.url)}
+              >
+                <h2>{driver.givenName} {driver.familyName}</h2>
+                <p>Nationality: {driver.nationality}</p>
+                <p>Code: {driver.code || "N/A"}</p>
+                {driver.imageUrl ? (
+                  <img
+                    src={driver.imageUrl}
+                    alt={`${driver.givenName} ${driver.familyName}`}
+                    width="120"
+                    className="driver-image"
+                  />
+                ) : (
+                  <p>No image available</p>
+                )}
+              </div>
+            ))
+          ) : (
+            <p className="data-not-found">No drivers found for {selectedYear}.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };

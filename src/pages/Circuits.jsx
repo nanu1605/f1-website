@@ -1,16 +1,19 @@
 import React, { useState, useEffect } from "react";
+import Loading from "../components/Loading";
 import "./../css/YearButton.css";
 import "./../css/Circuits.css";
 
 const Circuits = () => {
   const [circuits, setCircuits] = useState([]);
   const [selectedYear, setSelectedYear] = useState(2025); // Default year
+  const [isLoading, setIsLoading] = useState(false);
 
   // Generate a list of years from 1950 to 2025
   const years = Array.from({ length: 2025 - 1950 + 1 }, (_, i) => 1950 + i);
 
   useEffect(() => {
     const fetchCircuits = async () => {
+      setIsLoading(true);
       try {
         const response = await fetch(
           `https://ergast.com/api/f1/${selectedYear}/circuits.json`
@@ -29,6 +32,8 @@ const Circuits = () => {
         setCircuits(circuitsWithImages);
       } catch (error) {
         console.error("Error fetching circuits:", error);
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -75,31 +80,35 @@ const Circuits = () => {
       </div>
 
       {/* Circuits List */}
-      <div className="circuits-list">
-        {circuits.length > 0 ? (
-          circuits.map((circuit) => (
-            <div 
-              key={circuit.circuitId} 
-              className="circuit-card"
-              onClick={() => openWikiPage(circuit.url)}
-            >
-              <h2>{circuit.circuitName}</h2>
-              <p>Location: {circuit.Location.locality}, {circuit.Location.country}</p>
-              {circuit.imageUrl ? (
-                <img
-                  src={circuit.imageUrl}
-                  alt={`${circuit.circuitName} track`}
-                  className="circuit-image"
-                />
-              ) : (
-                <p>No image available</p>
-              )}
-            </div>
-          ))
-        ) : (
-          <p className="data-not-found">No circuits found for {selectedYear}.</p>
-        )}
-      </div>
+      {isLoading ? (
+        <Loading />
+      ) : (
+        <div className="circuits-list">
+          {circuits.length > 0 ? (
+            circuits.map((circuit) => (
+              <div 
+                key={circuit.circuitId} 
+                className="circuit-card"
+                onClick={() => openWikiPage(circuit.url)}
+              >
+                <h2>{circuit.circuitName}</h2>
+                <p>Location: {circuit.Location.locality}, {circuit.Location.country}</p>
+                {circuit.imageUrl ? (
+                  <img
+                    src={circuit.imageUrl}
+                    alt={`${circuit.circuitName} track`}
+                    className="circuit-image"
+                  />
+                ) : (
+                  <p>No image available</p>
+                )}
+              </div>
+            ))
+          ) : (
+            <p className="data-not-found">No circuits found for {selectedYear}.</p>
+          )}
+        </div>
+      )}
     </div>
   );
 };
