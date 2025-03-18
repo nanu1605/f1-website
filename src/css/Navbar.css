@@ -54,3 +54,10 @@
     background: rgba(255, 0, 0, 0.1);
   }
   
+  .nav-item.active {
+    color: red;
+    font-weight: bold;
+    background: rgba(255, 0, 0, 0.2);
+    border-bottom: 3px solid red;
+    transform: scale(1.1);
+  }
