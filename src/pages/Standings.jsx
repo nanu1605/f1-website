@@ -5,11 +5,10 @@ import "./../css/Standings.css";
 
 const Standings = () => {
   const [standings, setStandings] = useState([]);
-  const [selectedYear, setSelectedYear] = useState(2024);
 
   useEffect(() => {
     axios
-      .get("https://ergast.com/api/f1/${selectedYear}/driverStandings.json")
+      .get("https://ergast.com/api/f1/current/driverStandings.json")
       .then((response) => {
         setStandings(
           response.data.MRData.StandingsTable.StandingsLists[0].DriverStandings
