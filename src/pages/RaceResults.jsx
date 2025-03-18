@@ -54,7 +54,7 @@ const RaceResults = () => {
         animate={{ scale: 1 }}
         transition={{ duration: 0.5 }}
       >
-        Formula 1 Race Results ({selectedYear})
+        Formula 1 Standings ({selectedYear})
       </motion.h1>
 
       {/* Year Selection Buttons */}

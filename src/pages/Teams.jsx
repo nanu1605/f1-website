@@ -4,7 +4,7 @@ import "./../css/YearButton.css";
 
 const Teams = () => {
   const [teams, setTeams] = useState([]);
-  const [selectedYear, setSelectedYear] = useState(2025);
+  const [selectedYear, setSelectedYear] = useState(2024);
   const [isLoading, setIsLoading] = useState(false);
   const contentRef = useRef(null);
 
