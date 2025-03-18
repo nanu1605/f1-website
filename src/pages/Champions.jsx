@@ -6,7 +6,7 @@ import "./../css/Champions.css";
 const Champions = () => {
   const [champion, setChampion] = useState(null);
   const [constructorChampion, setConstructorChampion] = useState(null);
-  const [selectedYear, setSelectedYear] = useState(2025); // Default year
+  const [selectedYear, setSelectedYear] = useState(2024); // Default year
   const [isLoading, setIsLoading] = useState(false);
 
   // Generate a list of years from 1950 to 2025
